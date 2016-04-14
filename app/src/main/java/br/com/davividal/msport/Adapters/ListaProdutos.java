@@ -53,6 +53,5 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
         TextView nome;
         TextView preco;
         ImageView imagem;
-        int position;
     }
 }
