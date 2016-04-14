@@ -36,13 +36,6 @@ public class Produto {
     }
 
     /**
-     * @param imagem ID da imagem do produto
-     */
-    public void setImagem(Integer imagem) {
-        this.imagem = imagem;
-    }
-
-    /**
      * @param quantidade quantidade de produtos que estão sendo solicitados
      * @return Double
      */
@@ -62,5 +55,26 @@ public class Produto {
      */
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    /**
+     * @return String
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @return Integer
+     */
+    public Integer getImagem() {
+        return imagem;
+    }
+
+    /**
+     * @param imagem ID da imagem do produto
+     */
+    public void setImagem(Integer imagem) {
+        this.imagem = imagem;
     }
 }
