@@ -8,9 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-
 import br.com.davividal.msport.Domain.Entities.Produto;
 import br.com.davividal.msport.R;
 
@@ -26,9 +23,6 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        AtomicReference<ViewGroup> rootGroup = new AtomicReference<>(null);
-        AtomicBoolean attachToRoot = new AtomicBoolean(true);
-
         ProdutoViewHolder produtoViewHolder;
 
         if (null == convertView) {
