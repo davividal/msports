@@ -1,6 +1,5 @@
 package br.com.davividal.msport.Domain.Aggregates;
 
-import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -46,13 +45,17 @@ public class Compras {
     public String getTotal() {
         Double total = 0d;
 
-        Map<Produto, Integer> map;
-        map = new HashMap<>();
-
-        for (Map.Entry<Produto, Integer> entry : map.entrySet()) {
+        for (Map.Entry<Produto, Integer> entry : carrinho.entrySet()) {
             total += entry.getKey().getSubTotal(entry.getValue());
         }
 
         return (new Preco(total)).toString();
+    }
+
+    /**
+     * @return Hashtable Produto, Integer
+     */
+    public Hashtable getRelatorio() {
+        return carrinho;
     }
 }

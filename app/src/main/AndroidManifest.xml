@@ -10,7 +10,12 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ListaProdutos" />
+        <activity android:name=".ListaProdutos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".DetalhesProduto" />
         <activity android:name=".Relatorio" />
     </application>
