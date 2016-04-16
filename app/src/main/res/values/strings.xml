@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">mSports</string>
     <string name="product_image_description">Imagem do produto</string>
+    <string name="visualizar_relatorio">Visualizar relatório</string>
 </resources>

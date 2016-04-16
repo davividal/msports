@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/padding_product_data">
 
     <ImageView
         android:id="@+id/product_image"
@@ -9,14 +10,21 @@
         android:layout_height="@dimen/product_image_height"
         android:contentDescription="@string/product_image_description" />
 
-    <TextView
-        android:id="@+id/product_name"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/product_name_height" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_product_data">
 
-    <TextView
-        android:id="@+id/product_price"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/product_price_height" />
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/product_name_height" />
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/product_price_height" />
+    </LinearLayout>
 
 </LinearLayout>
