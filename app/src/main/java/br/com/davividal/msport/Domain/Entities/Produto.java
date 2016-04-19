@@ -1,8 +1,10 @@
 package br.com.davividal.msport.Domain.Entities;
 
+import java.io.Serializable;
+
 import br.com.davividal.msport.Domain.ValueObjects.Preco;
 
-public class Produto {
+public class Produto implements Serializable {
     private String nome;
     private String descricao;
     private Double valor;
@@ -22,20 +24,6 @@ public class Produto {
     }
 
     /**
-     * @param nome nome do produto
-     */
-    public Produto(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @param descricao descrição do produto
-     */
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    /**
      * @param quantidade quantidade de produtos que estão sendo solicitados
      * @return Double
      */
@@ -48,13 +36,6 @@ public class Produto {
      */
     public String getValor() {
         return (new Preco(this.valor)).toString();
-    }
-
-    /**
-     * @param valor preço do produto
-     */
-    public void setValor(Double valor) {
-        this.valor = valor;
     }
 
     /**
@@ -71,10 +52,7 @@ public class Produto {
         return imagem;
     }
 
-    /**
-     * @param imagem ID da imagem do produto
-     */
-    public void setImagem(Integer imagem) {
-        this.imagem = imagem;
+    public String getDescricao() {
+        return descricao;
     }
 }

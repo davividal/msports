@@ -20,9 +20,11 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_rel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:onClick="relatorio"
         android:text="@string/visualizar_relatorio" />
 
 </RelativeLayout>
