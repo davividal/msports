@@ -8,15 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
+import br.com.davividal.msport.Domain.Aggregates.Compras;
 import br.com.davividal.msport.Domain.Entities.Produto;
 import br.com.davividal.msport.R;
 
-public class ListaProdutos extends ArrayAdapter<Produto> {
+public class RelatorioCompras extends ArrayAdapter<Produto> {
     private final Activity context;
-    private final Produto[] produtos;
+    private final ArrayList<Produto> produtos;
 
-    public ListaProdutos(Activity context, Produto[] produtos) {
-        super(context, R.layout.list_cell, produtos);
+    public RelatorioCompras(Activity context, ArrayList<Produto> produtos) {
+        super(context, R.layout.list_bought_products, produtos);
         this.context = context;
         this.produtos = produtos;
     }
@@ -27,10 +31,11 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
 
         if (null == convertView) {
             LayoutInflater inflater = context.getLayoutInflater();
-            convertView = inflater.inflate(R.layout.list_cell, parent, false);
+            convertView = inflater.inflate(R.layout.list_bought_products, parent, false);
 
             produtoViewHolder = new ProdutoViewHolder();
             produtoViewHolder.nome = (TextView) convertView.findViewById(R.id.product_name);
+            produtoViewHolder.quantidade = (TextView) convertView.findViewById(R.id.product_quantity);
             produtoViewHolder.preco = (TextView) convertView.findViewById(R.id.product_price);
             produtoViewHolder.imagem = (ImageView) convertView.findViewById(R.id.product_image);
 
@@ -39,9 +44,14 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
             produtoViewHolder = (ProdutoViewHolder) convertView.getTag();
         }
 
-        Produto produto = produtos[position];
+        Produto produto = produtos.get(position);
         if (null != produto) {
+            Integer quantidade = Compras.getInstance().getProdutoQuantidade(produto);
+
             produtoViewHolder.nome.setText(produto.getNome());
+            produtoViewHolder.quantidade.setText(
+                    String.format(new Locale("pt", "br"), "Quantidade: %d", quantidade)
+            );
             produtoViewHolder.preco.setText(produto.getValor());
             produtoViewHolder.imagem.setImageResource(produto.getImagem());
         }
@@ -51,6 +61,7 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
 
     static class ProdutoViewHolder {
         TextView nome;
+        TextView quantidade;
         TextView preco;
         ImageView imagem;
     }

@@ -3,7 +3,7 @@ package br.com.davividal.msport.Domain.ValueObjects;
 import java.util.Locale;
 
 public class Preco {
-    private Double valor;
+    private final Double valor;
 
     public Preco(Double valor) {
         this.valor = valor;

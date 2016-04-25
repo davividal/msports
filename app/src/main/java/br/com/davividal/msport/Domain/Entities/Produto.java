@@ -5,14 +5,14 @@ import java.io.Serializable;
 import br.com.davividal.msport.Domain.ValueObjects.Preco;
 
 public class Produto implements Serializable {
-    private String nome;
-    private String descricao;
-    private Double valor;
-    private Integer imagem;
+    private final String nome;
+    private final String descricao;
+    private final Double valor;
+    private final Integer imagem;
 
     /**
      * @param nome      nome do produto
-     * @param descricao descição do produto
+     * @param descricao descrição do produto
      * @param valor     preço do produto
      * @param imagem    ID da imagem do produto
      */

@@ -10,8 +10,8 @@ import br.com.davividal.msport.DetalhesProduto;
 import br.com.davividal.msport.Domain.Entities.Produto;
 
 public class ProductDetailListener implements AdapterView.OnItemClickListener {
-    private Activity parentActivity;
-    private Produto[] produtos;
+    private final Activity parentActivity;
+    private final Produto[] produtos;
 
     /**
      * Design pattern: Injeção de Dependência (Dependency Injection)

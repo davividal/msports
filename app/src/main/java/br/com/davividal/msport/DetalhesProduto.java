@@ -12,7 +12,7 @@ import br.com.davividal.msport.Domain.Aggregates.Compras;
 import br.com.davividal.msport.Domain.Entities.Produto;
 
 public class DetalhesProduto extends AppCompatActivity {
-    Compras compras;
+    private Compras compras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class DetalhesProduto extends AppCompatActivity {
 
         compras = Compras.getInstance();
 
-        EditText descripton = (EditText) findViewById(R.id.text_descripton);
-        assert descripton != null;
-        descripton.setText(produto.getDescricao());
+        EditText description = (EditText) findViewById(R.id.text_description);
+        assert description != null;
+        description.setText(produto.getDescricao());
 
         ImageView image = (ImageView) findViewById(R.id.product_image);
         assert image != null;

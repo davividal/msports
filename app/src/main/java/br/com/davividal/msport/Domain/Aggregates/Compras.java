@@ -1,5 +1,6 @@
 package br.com.davividal.msport.Domain.Aggregates;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -9,8 +10,11 @@ import br.com.davividal.msport.Domain.ValueObjects.Preco;
 public class Compras {
     private static Compras instance = null;
 
-    private Hashtable<Produto, Integer> carrinho;
+    private final Hashtable<Produto, Integer> carrinho;
 
+    /**
+     * Design pattern: Singleton
+     */
     private Compras() {
         carrinho = new Hashtable<>();
     }
@@ -53,9 +57,23 @@ public class Compras {
     }
 
     /**
-     * @return Hashtable Produto, Integer
+     * @return ArrayList
      */
-    public Hashtable getRelatorio() {
-        return carrinho;
+    public ArrayList<Produto> getProdutos() {
+        ArrayList<Produto> produtos = new ArrayList<>();
+
+        for (Map.Entry<Produto, Integer> entry : carrinho.entrySet()) {
+            produtos.add(entry.getKey());
+        }
+
+        return produtos;
+    }
+
+    /**
+     * @param produto Produto para pegar a quantidade de vendas
+     * @return Integer
+     */
+    public Integer getProdutoQuantidade(Produto produto) {
+        return carrinho.get(produto);
     }
 }
