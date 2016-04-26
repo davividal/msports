@@ -8,14 +8,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import br.com.davividal.msport.Domain.Entities.Produto;
 import br.com.davividal.msport.R;
 
 public class ListaProdutos extends ArrayAdapter<Produto> {
     private final Activity context;
-    private final Produto[] produtos;
+    private final ArrayList<Produto> produtos;
 
-    public ListaProdutos(Activity context, Produto[] produtos) {
+    public ListaProdutos(Activity context, ArrayList<Produto> produtos) {
         super(context, R.layout.list_cell, produtos);
         this.context = context;
         this.produtos = produtos;
@@ -39,7 +41,7 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
             produtoViewHolder = (ProdutoViewHolder) convertView.getTag();
         }
 
-        Produto produto = produtos[position];
+        Produto produto = produtos.get(position);
         if (null != produto) {
             produtoViewHolder.nome.setText(produto.getNome());
             produtoViewHolder.preco.setText(produto.getValor());
@@ -50,8 +52,8 @@ public class ListaProdutos extends ArrayAdapter<Produto> {
     }
 
     static class ProdutoViewHolder {
-        TextView nome;
-        TextView preco;
-        ImageView imagem;
+            TextView nome;
+            TextView preco;
+            ImageView imagem;
     }
 }
