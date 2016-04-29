@@ -16,16 +16,12 @@ import br.com.davividal.msport.Domain.Aggregates.Compras;
 import br.com.davividal.msport.Domain.Entities.Produto;
 
 public class DetalhesProduto extends AppCompatActivity {
-    private Compras compras;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_detalhes_produto);
         Produto produto = (Produto) this.getIntent().getSerializableExtra("produto");
-
-        compras = Compras.getInstance();
 
         EditText description = (EditText) findViewById(R.id.text_description);
         assert description != null;
@@ -42,7 +38,7 @@ public class DetalhesProduto extends AppCompatActivity {
 
     public void buy(View view) {
         Produto produto = (Produto) this.getIntent().getSerializableExtra("produto");
-        compras.addProduto(produto);
+        Compras.getInstance().addProduto(produto);
         Toast.makeText(DetalhesProduto.this, "Comprou o produto" + produto.getNome(), Toast.LENGTH_SHORT).show();
     }
 

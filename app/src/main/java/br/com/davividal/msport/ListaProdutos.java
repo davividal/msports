@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import br.com.davividal.msport.Adapters.ProductDetailListener;
+import br.com.davividal.msport.Domain.Aggregates.Compras;
 import br.com.davividal.msport.Domain.Entities.Produto;
 
 public class ListaProdutos extends AppCompatActivity {
@@ -80,7 +82,11 @@ public class ListaProdutos extends AppCompatActivity {
     }
 
     public void relatorio(View view) {
-        Intent it = new Intent(this, Relatorio.class);
-        this.startActivity(it);
+        if (Compras.getInstance().getQuantidadeProdutos() > 0) {
+            Intent it = new Intent(this, Relatorio.class);
+            this.startActivity(it);
+        } else {
+            Toast.makeText(ListaProdutos.this, "Nenhum produto comprado", Toast.LENGTH_SHORT).show();
+        }
     }
 }

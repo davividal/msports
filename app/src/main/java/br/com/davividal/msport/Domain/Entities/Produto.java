@@ -55,4 +55,22 @@ public class Produto implements Serializable {
     public String getDescricao() {
         return descricao;
     }
+
+    public boolean equals(Object outro) {
+        return outro instanceof Produto && (
+                (
+                        (Produto) outro).getNome().equals(nome)
+                        && ((Produto) outro).getDescricao().equals(descricao)
+                        && ((Produto) outro).getImagem().equals(imagem)
+                        && ((Produto) outro).getValor().equals(getValor())
+        );
+    }
+
+    public int hashCode() {
+        int hash = 1;
+        hash = hash * 42 + nome.hashCode();
+        hash = hash * 42 + descricao.hashCode();
+        hash = hash * 42 + getValor().hashCode();
+        return hash;
+    }
 }

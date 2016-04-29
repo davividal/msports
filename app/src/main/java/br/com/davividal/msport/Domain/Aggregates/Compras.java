@@ -76,4 +76,8 @@ public class Compras {
     public Integer getProdutoQuantidade(Produto produto) {
         return carrinho.get(produto);
     }
+
+    public Integer getQuantidadeProdutos() {
+        return carrinho.size();
+    }
 }
